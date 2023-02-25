@@ -1,2 +1,2 @@
 import streamlit
-streamlit.title('My Parents New Health Dinner')
+streamlit.title('My Parents New Healthy Diner')
