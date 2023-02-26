@@ -37,7 +37,7 @@ try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
     streamlit.error('Please select a fruit to get information.')
-    else
+    else:
       back_from_function = get_fruityvice_data(fruit_choice)
       streamlit.dataframe(back_from_function)
 
@@ -56,9 +56,6 @@ if streamlit.button('Get Fruit Load List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
   streamlit.dataframe(my_data_rows)
-
-# don't write anything past here while wee troubleshoot
-streamlit.stop()
   
 #Allow the end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
@@ -71,5 +68,3 @@ if streamlit.button('Add a Fruit to the List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   back_from_function = inset_row_snowflake(add_my_fruit)
   streamlit.text(back_from_function)
-
-my_cur.execute("insert into fruit_load_list values('from streamlit')")
